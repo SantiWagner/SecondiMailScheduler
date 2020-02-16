@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondiMailScheduler", "SecondiMailScheduler.csproj", "{FC670CB6-9AE8-49F6-8359-94787FC6E739}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SecondiMailSchedulerSetup", "..\SecondiMailSchedulerSetup\SecondiMailSchedulerSetup.vdproj", "{998A237D-0F81-4BF9-8AB1-495F5EB31162}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC670CB6-9AE8-49F6-8359-94787FC6E739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC670CB6-9AE8-49F6-8359-94787FC6E739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC670CB6-9AE8-49F6-8359-94787FC6E739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC670CB6-9AE8-49F6-8359-94787FC6E739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998A237D-0F81-4BF9-8AB1-495F5EB31162}.Debug|Any CPU.ActiveCfg = Debug
+		{998A237D-0F81-4BF9-8AB1-495F5EB31162}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0918B59-FF70-42A4-A496-ED9BCF3CE027}
+	EndGlobalSection
+EndGlobal
