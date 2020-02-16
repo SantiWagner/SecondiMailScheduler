@@ -68,7 +68,7 @@ namespace SecondiMailScheduler
             Setting current = db.Settings.FirstOrDefault();
 
             WriteToFile("INFO", "Loading settings from database.");
-            AddEvent(1, "[INFO]", "Cargando configuración desde la BD");
+            AddEvent(1, "[INFO]", "El servicio está cargando los parámetros de configuración.");
 
             _Host = current.Host;
             _Port = current.Port;
@@ -82,14 +82,14 @@ namespace SecondiMailScheduler
             if (_EnableTestMode)
             {
                 WriteToFile("INFO", "Running service in test-mode.");
-                AddEvent(1, "[INFO]", "El servicio iniciará en Test-Mode");
+                AddEvent(1, "[INFO]", "El servicio iniciará su ejecución en Test-Mode.");
             }
         }
 
         protected override void OnStart(string[] args)
         {
             WriteToFile("INFO", "Service started");
-            AddEvent(1, "[INFO]", "El servicio se ha iniciado correctamente");
+            AddEvent(1, "[INFO]", "El servicio ha comenzado su ejecución de manera correcta.");
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
             timer.Interval = _Interval*60*1000; // Number in miliseconds  
             timer.Enabled = true;
@@ -98,12 +98,12 @@ namespace SecondiMailScheduler
         protected override void OnStop()
         {
             WriteToFile("INFO", "Service stopped");
-            AddEvent(1, "[INFO]", "El servicio se ha detenido");
+            AddEvent(1, "[INFO]", "El servicio ha detenido su ejecución.");
         }
 
         private void OnElapsedTime(object source, ElapsedEventArgs e)
         {
-            AddEvent(1, "[INFO]", "El servicio continúa ejecutándose");
+            AddEvent(1, "[INFO]", "El servicio ha retomado su ejecución satisfactoriamente.");
             SendMail();
         }
 
@@ -129,7 +129,7 @@ namespace SecondiMailScheduler
                 MailAddress From = new MailAddress(_From, _FromName, System.Text.Encoding.UTF8);
 
                 WriteToFile("INFO", "Found "+ dueNotices.Count()+ " pending notice(s)");
-                AddEvent(1, "[INFO]", "Se encontraron"+dueNotices.Count()+"envío(s) pendiente(s)");
+                AddEvent(1, "[INFO]", "Se encontraron "+dueNotices.Count()+" envío(s) pendiente(s) programados.");
 
                 bool ErrorFound = false;
                 for (int i=0; i < dueNotices.Count(); i++) { 
@@ -220,13 +220,13 @@ namespace SecondiMailScheduler
                 }
                 else
                 {
-                    AddEvent(2, "[SUCCESS]", "Todos los correos pendientes fueron enviados.");
+                    AddEvent(2, "[SUCCESS]", "Todos los correos pendientes fueron enviados correctamente.");
                 }
             }
             catch (Exception e)
             {
                 //If an Exception is Found, write to the log
-                AddEvent(4, "[ERROR]", "No se ha podido conectar con la base de datos");
+                AddEvent(4, "[ERROR]", "No se ha podido establecer una conexión con la base de datos. ");
                 WriteToFile("ERROR", "An exception rised while attempting to access the Database");
                 WriteToFile("EXCEPTION", e.GetType().FullName + "|" + e.Message + "|" + e.StackTrace);
             }
